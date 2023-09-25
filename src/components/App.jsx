@@ -20,13 +20,32 @@ const App = () => {
     return percentage;
   };
 
+  // const handleFeedback = ({ target }) => {
+  //   console.log(target.textContent);
+  //   if (!target || !target.textContent) return;
+
+  //   if (target.textContent === 'good') setGood(prev => prev + 1);
+  //   if (target.textContent === 'neutral') setNeutral(prev => prev + 1);
+  //   if (target.textContent === 'bad') setBad(prev => prev + 1);
+  // };
   const handleFeedback = ({ target }) => {
     console.log(target.textContent);
     if (!target || !target.textContent) return;
 
-    if (target.textContent === 'good') setGood(prev => prev + 1);
-    if (target.textContent === 'neutral') setNeutral(prev => prev + 1);
-    if (target.textContent === 'bad') setBad(prev => prev + 1);
+    switch (target.textContent) {
+      case 'good':
+        setGood(prev => prev + 1);
+        break;
+      case 'neutral':
+        setNeutral(prev => prev + 1);
+        break;
+      case 'bad':
+        setBad(prev => prev + 1);
+        break;
+      default:
+        // Handle any other cases if necessary
+        break;
+    }
   };
 
   const total = countTotalFeedback();
